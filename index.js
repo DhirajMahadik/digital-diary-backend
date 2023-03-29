@@ -143,7 +143,7 @@ app.post('/edit-profile', async(req, res)=>{
 })
 
 app.post('/add-task', async (req, res) => {
-    let task = req.body.task;
+    let task = {title:req.body.task.title, content:req.body.task.content, date: new Date()};
     let id = req.body.id
     console.log(task)
     let data = await User.findOne({ _id: id })
